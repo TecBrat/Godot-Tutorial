@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://q87mxvbvn4yi"]
+
+[ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_01cg0"]
+[ext_resource type="Texture2D" uid="uid://ilwe8wtvwsxi" path="res://graphics/player/player.png" id="1_jkrpx"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ekisi"]
+polygon = PackedVector2Array(-395, -74, -356, 66, -263, 202, -212, 219, 105, 206, 224, 193, 377, 109, 419, 45, 402, -10, 279, -52, 139, -91, 63, -154, 21, -197, -56, -260, -140, -256, -284, -230, -356, -197, -390, -133)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 31
+script = ExtResource("1_01cg0")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(-0.199646, -18.3994)
+rotation = 1.5708
+scale = Vector2(4, 4)
+texture = ExtResource("1_jkrpx")
+
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.199656, -15.5133)
+rotation = 1.5708
+scale = Vector2(3.88607, 3.88607)
+polygon = PackedVector2Array(-62, 13, -61, 37, -57, 54, -51, 67, -40, 87, -29, 92, -20, 97, 3, 98, 17, 90, 28, 88, 38, 79, 58, 65, 60, 57, 52, -56, 32, -94, 25, -98, 6, -98, -1, -87, -12, -55, -14, -41, -29, -22, -33, -12, -48, -6)
+
+[node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="GrenadeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LaserPositions" type="Node2D" parent="."]
+position = Vector2(290, 10)
+scale = Vector2(1, 2.04)
+
+[node name="Marker2D" type="Marker2D" parent="LaserPositions"]
+position = Vector2(99, 18)
+
+[node name="Marker2D2" type="Marker2D" parent="LaserPositions"]
+position = Vector2(95, 31)
+
+[node name="Marker2D3" type="Marker2D" parent="LaserPositions"]
+position = Vector2(96, 10)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ekisi")
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]

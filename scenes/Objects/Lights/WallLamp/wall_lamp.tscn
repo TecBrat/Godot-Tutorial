@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://co8vom8hmudui"]
+
+[ext_resource type="Texture2D" uid="uid://claddnch6nrjo" path="res://graphics/newStuff/wall_lamp.png" id="1_fpi6l"]
+[ext_resource type="Texture2D" uid="uid://cckmo6n42b7l2" path="res://graphics/lights/textures/circle.png" id="2_6h725"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sj3bi"]
+polygon = PackedVector2Array(-245, 69, -210, 45, -210, -9, 213, -11, 213, 45, 245, 71, 237, -28, -234, -26)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kwh4q"]
+polygon = PackedVector2Array(-32, 22, -33, -47, -28, -50, 18, -36, 51, -9, 57, 5, 61, 26, 75, 25, 50, -19, 11, -48, -37, -56, -39, 16)
+
+[node name="WallLamp" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-391, 72, -418, 14, -379, -34, -358, -52, -326, -73, -316, -76, -286, -82, 277, -82, 288, -81, 326, -73, 356, -58, 387, -28, 412, 3, 417, 11, 417, 11, 417, 21, 396, 68, 380, 74, 267, 74, 253, 80, 240, 81, 230, 75, -225, 75, -233, 77, -236, 80, -248, 79, -256, 77, -259, 72)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fpi6l")
+
+[node name="Light Bar" type="PointLight2D" parent="."]
+color = Color(0.0784314, 1, 1, 1)
+energy = 5.0
+shadow_enabled = true
+texture = ExtResource("2_6h725")
+texture_scale = 3.0
+
+[node name="Light Bar Occluder" type="LightOccluder2D" parent="Light Bar"]
+occluder = SubResource("OccluderPolygon2D_sj3bi")
+
+[node name="Right Side Light" type="PointLight2D" parent="."]
+position = Vector2(293, 25)
+color = Color(0.0666667, 1, 1, 1)
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("2_6h725")
+texture_scale = 1.5
+
+[node name="Right Side Occluder" type="LightOccluder2D" parent="Right Side Light"]
+occluder = SubResource("OccluderPolygon2D_kwh4q")
+
+[node name="Left Side Light" type="PointLight2D" parent="."]
+position = Vector2(-294, 8)
+color = Color(0.0470588, 1, 1, 1)
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("2_6h725")
+texture_scale = 1.5
+
+[node name="Left Side Occluder" type="LightOccluder2D" parent="Left Side Light"]
+position = Vector2(4, 17)
+rotation = 3.14159
+scale = Vector2(1, -1)
+occluder = SubResource("OccluderPolygon2D_kwh4q")

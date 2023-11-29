@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8d6ugoicje23"]
+
+[ext_resource type="Script" path="res://scenes/Levels/level.gd" id="1_f7af3"]
+[ext_resource type="Texture2D" uid="uid://2n25w6is4fm3" path="res://icon.svg" id="1_hj2s6"]
+[ext_resource type="Script" path="res://scripts/logo.gd" id="2_opxr4"]
+[ext_resource type="PackedScene" uid="uid://q87mxvbvn4yi" path="res://scenes/Player/player.tscn" id="3_jduiu"]
+[ext_resource type="PackedScene" uid="uid://b7fkbk4vogvt7" path="res://scenes/Objects/Bed/bed.tscn" id="5_7abtp"]
+[ext_resource type="PackedScene" uid="uid://cmcg7qxclygs3" path="res://scenes/Objects/Box/box.tscn" id="6_i3she"]
+[ext_resource type="PackedScene" uid="uid://dvi83pqgsama0" path="res://scenes/Objects/Drone/drone.tscn" id="7_20dqf"]
+[ext_resource type="PackedScene" uid="uid://bfj25hkhfd5o1" path="res://scenes/Objects/Gate/gate.tscn" id="8_fcuq0"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_f7af3")
+
+[node name="Logo" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_hj2s6")
+script = ExtResource("2_opxr4")
+
+[node name="Bed" parent="." instance=ExtResource("5_7abtp")]
+process_mode = 4
+visible = false
+position = Vector2(399, 84)
+scale = Vector2(0.25, 0.25)
+
+[node name="Box" parent="." instance=ExtResource("6_i3she")]
+process_mode = 4
+visible = false
+position = Vector2(256, 105)
+scale = Vector2(0.1, 0.1)
+
+[node name="Drone" parent="." instance=ExtResource("7_20dqf")]
+process_mode = 4
+visible = false
+position = Vector2(-5, 214)
+
+[node name="Gate" parent="." instance=ExtResource("8_fcuq0")]
+position = Vector2(0, -2)
+
+[node name="Player" parent="." instance=ExtResource("3_jduiu")]
+position = Vector2(744, 267)
+scale = Vector2(0.25, 0.25)
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]
+[connection signal="player_fire_laser" from="Player" to="." method="_on_player_player_fire_laser"]
+[connection signal="player_throw_grenade" from="Player" to="." method="_on_player_player_throw_grenade"]
