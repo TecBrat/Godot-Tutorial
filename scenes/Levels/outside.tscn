@@ -105,18 +105,15 @@ sources/1 = SubResource("TileSetAtlasSource_vxua5")
 [node name="Outside" instance=ExtResource("1_6e6bn")]
 script = ExtResource("2_wp3i7")
 
-[node name="Ground" type="Node2D" parent="." index="0"]
-position = Vector2(746, 274)
-
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
-position = Vector2(342, 0)
+position = Vector2(1088, 274)
 texture = ExtResource("2_ence7")
 region_enabled = true
 region_rect = Rect2(0, 0, 16000, 10000)
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
-position = Vector2(-0.00177002, 0.000396729)
+position = Vector2(745.998, 274)
 scale = Vector2(0.999998, 0.999998)
 tile_set = SubResource("TileSet_a530f")
 format = 2
@@ -132,87 +129,87 @@ layer_1/tile_data = PackedInt32Array(65530, 65536, 0, 65529, 65536, 0, 65528, 65
 
 [node name="Decoration" type="Sprite2D" parent="Ground" index="2"]
 modulate = Color(0.870588, 0.886275, 0.54902, 1)
-position = Vector2(-438, 182)
+position = Vector2(308, 456)
 scale = Vector2(0.279687, 0.279687)
 texture = ExtResource("3_w4gt6")
 
 [node name="Moss1" type="Sprite2D" parent="Ground" index="3"]
-position = Vector2(1703.5, 1238)
+position = Vector2(2449.5, 1512)
 texture = ExtResource("6_k5ami")
 
 [node name="Moss2" type="Sprite2D" parent="Ground" index="4"]
-position = Vector2(388.5, 741)
+position = Vector2(1134.5, 1015)
 texture = ExtResource("7_wsoal")
 
 [node name="Moss3" type="Sprite2D" parent="Ground" index="5"]
-position = Vector2(3532, 347)
+position = Vector2(4278, 621)
 texture = ExtResource("8_ae48u")
 
 [node name="Moss4" type="Sprite2D" parent="Ground" index="6"]
-position = Vector2(1940, 363)
+position = Vector2(2686, 637)
 texture = ExtResource("9_twew7")
 
 [node name="Moss6" type="Sprite2D" parent="Ground" index="7"]
-position = Vector2(2311, 370)
+position = Vector2(3057, 644)
 texture = ExtResource("9_twew7")
 
 [node name="Moss7" type="Sprite2D" parent="Ground" index="8"]
-position = Vector2(2311, 370)
+position = Vector2(3057, 644)
 texture = ExtResource("9_twew7")
 
 [node name="Moss8" type="Sprite2D" parent="Ground" index="9"]
-position = Vector2(2635, 316)
+position = Vector2(3381, 590)
 rotation = -2.86485
 texture = ExtResource("9_twew7")
 
 [node name="Moss9" type="Sprite2D" parent="Ground" index="10"]
-position = Vector2(3284, 347)
+position = Vector2(4030, 621)
 rotation = 0.0530083
 texture = ExtResource("9_twew7")
 
 [node name="Moss5" type="Sprite2D" parent="Ground" index="11"]
-position = Vector2(2096.5, 1393)
+position = Vector2(2842.5, 1667)
 texture = ExtResource("10_uytag")
 
 [node name="Moss10" type="Sprite2D" parent="Ground" index="12"]
-position = Vector2(2836, 287)
+position = Vector2(3582, 561)
 texture = ExtResource("10_uytag")
 
 [node name="Moss11" type="Sprite2D" parent="Ground" index="13"]
-position = Vector2(2857, 342)
+position = Vector2(3603, 616)
 texture = ExtResource("10_uytag")
 
 [node name="Moss12" type="Sprite2D" parent="Ground" index="14"]
-position = Vector2(2947, 287)
+position = Vector2(3693, 561)
 texture = ExtResource("10_uytag")
 
 [node name="Moss13" type="Sprite2D" parent="Ground" index="15"]
-position = Vector2(2987, 335)
+position = Vector2(3733, 609)
 texture = ExtResource("10_uytag")
 
 [node name="House" parent="Ground" index="16" instance=ExtResource("11_8e7g4")]
-position = Vector2(-1723, 3309)
+position = Vector2(-977, 3583)
 rotation = -2.57785
 
 [node name="LightFanAnimation" parent="Ground/House" index="4" instance=ExtResource("10_3j4xe")]
 position = Vector2(-20.2601, 491.949)
 
 [node name="SteamVent" parent="Ground" index="17" instance=ExtResource("12_0mfos")]
-position = Vector2(-1223, 918)
+position = Vector2(-477, 1192)
 
-[node name="Gate" parent="." index="1" instance=ExtResource("18_oevxa")]
-position = Vector2(737, -2)
-
-[node name="Drone" parent="." index="4" instance=ExtResource("17_8npj8")]
+[node name="Drone" parent="." index="2" instance=ExtResource("17_8npj8")]
 position = Vector2(0, 1029)
 
-[node name="Toilet" parent="." index="5" instance=ExtResource("15_s0ui0")]
+[node name="Toilet" parent="." index="3" instance=ExtResource("15_s0ui0")]
 position = Vector2(782, 1710)
 rotation = -2.57785
 scale = Vector2(1.25, 1.25)
 
-[node name="Crate" parent="." index="6" instance=ExtResource("16_67t8y")]
+[node name="Crate" parent="." index="4" instance=ExtResource("16_67t8y")]
 position = Vector2(1568, 1468)
+
+[node name="Gate" parent="." index="5" instance=ExtResource("18_oevxa")]
+position = Vector2(737, -2)
 
 [connection signal="player_entered_house" from="Ground/House" to="." method="_on_house_player_entered_house"]
 [connection signal="player_exited_house" from="Ground/House" to="." method="_on_house_player_exited_house"]
