@@ -10,6 +10,8 @@ script = ExtResource("1_f7af3")
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[node name="Lights" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("3_jduiu")]
 position = Vector2(744, 963)
 scale = Vector2(0.25, 0.25)
