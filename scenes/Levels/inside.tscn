@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://gqmrt2v5dsp8"]
+[gd_scene load_steps=11 format=3 uid="uid://gqmrt2v5dsp8"]
 
 [ext_resource type="PackedScene" uid="uid://b8d6ugoicje23" path="res://scenes/Levels/level.tscn" id="1_1l3vn"]
 [ext_resource type="Script" path="res://scenes/Levels/inside.gd" id="2_2ubeh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://boap8qpno0f8e" path="res://scenes/Objects/Lights/SimpleLamp/SimpleLamp.tscn" id="6_qd2me"]
 [ext_resource type="PackedScene" uid="uid://co8vom8hmudui" path="res://scenes/Objects/Lights/WallLamp/wall_lamp.tscn" id="7_unt63"]
 [ext_resource type="PackedScene" uid="uid://cffn8ydf8sstd" path="res://scenes/Objects/Crate/crate.tscn" id="9_hlkhu"]
+[ext_resource type="Texture2D" uid="uid://cckmo6n42b7l2" path="res://graphics/lights/textures/circle.png" id="10_0vl1a"]
 
 [node name="Inside" instance=ExtResource("1_1l3vn")]
 script = ExtResource("2_2ubeh")
@@ -120,3 +121,14 @@ rotation = -0.000854969
 [node name="Player" parent="." index="5"]
 position = Vector2(-797, 4141)
 rotation = 3.14159
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" index="7"]
+position = Vector2(360, 48.0009)
+energy = 3.91
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("10_0vl1a")
+texture_scale = 1.57
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="6"]
+color = Color(0.564706, 0.823529, 0.721569, 0.823529)
+blend_mode = 1
