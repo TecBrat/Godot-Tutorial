@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://gqmrt2v5dsp8"]
+[gd_scene load_steps=12 format=3 uid="uid://gqmrt2v5dsp8"]
 
 [ext_resource type="PackedScene" uid="uid://b8d6ugoicje23" path="res://scenes/Levels/level.tscn" id="1_1l3vn"]
 [ext_resource type="Script" path="res://scenes/Levels/inside.gd" id="2_2ubeh"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://co8vom8hmudui" path="res://scenes/Objects/Lights/WallLamp/wall_lamp.tscn" id="7_unt63"]
 [ext_resource type="PackedScene" uid="uid://cffn8ydf8sstd" path="res://scenes/Objects/Crate/crate.tscn" id="9_hlkhu"]
 [ext_resource type="Texture2D" uid="uid://cckmo6n42b7l2" path="res://graphics/lights/textures/circle.png" id="10_0vl1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw6gq"]
+size = Vector2(1082, 223)
 
 [node name="Inside" instance=ExtResource("1_1l3vn")]
 script = ExtResource("2_2ubeh")
@@ -70,8 +73,8 @@ layer_2/name = "Inside Walls"
 layer_2/tile_data = PackedInt32Array(720892, 327680, 8, 655356, 65536, 6, 589820, 65536, 6, 524284, 65536, 7, 458748, 65536, 8, 524281, 262144, 7, 524282, 0, 6, 458745, 262144, 7, 458746, 0, 6, 393212, 0, 7, 393213, 196608, 8, 393215, 196608, 8, 393214, 0, 6, 196605, 196608, 6, 327677, 65536, 6, 262141, 65536, 6, 196604, 262144, 7, 196603, 65536, 8, 196602, 0, 6, 196601, 262144, 7, 65529, 262144, 7, 65530, 0, 6, 65531, 131072, 7, 327680, 131072, 7, 655360, 327680, 8, 589824, 65536, 6, 524288, 65536, 6, 458752, 65536, 6, 327686, 393216, 7, 327685, 0, 6, 327684, 0, 6, 327681, 0, 6, 327682, 0, 6, 131069, 65536, 6, 65533, 65536, 7, 65532, 0, 6, 196607, 131072, 7, 262143, 65536, 6, 327679, 65536, 6, 131072, 0, 6, 131073, 0, 6, 131074, 0, 6, 131075, 0, 6, 131076, 0, 6, 131078, 393216, 7, 327672, 393216, 7)
 
 [node name="Player" parent="." index="3"]
-position = Vector2(-797, 4141)
-rotation = 3.14159
+position = Vector2(-797, 3708)
+rotation = -1.5708
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="7"]
 position = Vector2(360, 48.0009)
@@ -132,3 +135,11 @@ rotation = -0.000854969
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="6"]
 color = Color(0.564706, 0.823529, 0.721569, 0.823529)
 blend_mode = 1
+
+[node name="ExitGateArea" type="Area2D" parent="." index="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
+position = Vector2(-765, 4211.5)
+shape = SubResource("RectangleShape2D_hw6gq")
+
+[connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
