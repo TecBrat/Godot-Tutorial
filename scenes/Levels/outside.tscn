@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://drbrdi2nhqnms"]
+[gd_scene load_steps=20 format=3 uid="uid://drbrdi2nhqnms"]
 
 [ext_resource type="PackedScene" uid="uid://b8d6ugoicje23" path="res://scenes/Levels/level.tscn" id="1_6e6bn"]
 [ext_resource type="Texture2D" uid="uid://d1chxfxfq3qdb" path="res://graphics/ground/stones.png" id="2_ence7"]
@@ -14,8 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cykbka7cqqdo" path="res://graphics/decals/moss/moss_5.png" id="10_uytag"]
 [ext_resource type="PackedScene" uid="uid://ctba5xuatbrnk" path="res://scenes/House/house.tscn" id="11_8e7g4"]
 [ext_resource type="PackedScene" uid="uid://dqd5laswbypek" path="res://scenes/Objects/SteamVent/steam_vent.tscn" id="12_0mfos"]
-[ext_resource type="PackedScene" uid="uid://buevo6uo0m4hd" path="res://scenes/Objects/Toilet/toilet.tscn" id="15_s0ui0"]
-[ext_resource type="PackedScene" uid="uid://cffn8ydf8sstd" path="res://scenes/Objects/Crate/crate.tscn" id="16_67t8y"]
 [ext_resource type="PackedScene" uid="uid://dvi83pqgsama0" path="res://scenes/Objects/Drone/drone.tscn" id="17_8npj8"]
 [ext_resource type="PackedScene" uid="uid://bfj25hkhfd5o1" path="res://scenes/Objects/Gate/gate.tscn" id="18_oevxa"]
 
@@ -196,15 +194,7 @@ position = Vector2(-477, 1192)
 [node name="Drone" parent="." index="2" instance=ExtResource("17_8npj8")]
 position = Vector2(0, 1029)
 
-[node name="Toilet" parent="." index="3" instance=ExtResource("15_s0ui0")]
-position = Vector2(782, 1710)
-rotation = -2.57785
-scale = Vector2(1.25, 1.25)
-
-[node name="Crate" parent="." index="4" instance=ExtResource("16_67t8y")]
-position = Vector2(1568, 1468)
-
-[node name="Gate" parent="." index="5" instance=ExtResource("18_oevxa")]
+[node name="Gate" parent="." index="3" instance=ExtResource("18_oevxa")]
 position = Vector2(737, -2)
 
 [connection signal="player_entered_house" from="Ground/House" to="." method="_on_house_player_entered_house"]

@@ -14,6 +14,7 @@ func _on_gate_player_entered_gate(body):
 #	print(body.name + " Entered Gate")
 	var tween = create_tween()
 	tween.tween_property($Player,"player_speed",0,0.5)
+	get_tree().change_scene_to_file("res://scenes/Levels/inside.tscn")
 
 #func _on_gate_player_exited_gate(body):
 #	print(body.name + " Exited Gate")
