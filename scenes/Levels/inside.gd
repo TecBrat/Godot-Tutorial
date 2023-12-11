@@ -14,3 +14,4 @@ func _process(delta):
 func _on_exit_gate_area_body_entered(body):
 	var tween = create_tween()
 	tween.tween_property($Player,"player_speed",0,0.5)
+	get_tree().change_scene_to_file("res://scenes/Levels/outside.tscn")
