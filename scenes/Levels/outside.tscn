@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://drbrdi2nhqnms"]
+[gd_scene load_steps=21 format=3 uid="uid://drbrdi2nhqnms"]
 
 [ext_resource type="PackedScene" uid="uid://b8d6ugoicje23" path="res://scenes/Levels/level.tscn" id="1_6e6bn"]
 [ext_resource type="Texture2D" uid="uid://d1chxfxfq3qdb" path="res://graphics/ground/stones.png" id="2_ence7"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ctba5xuatbrnk" path="res://scenes/House/house.tscn" id="11_8e7g4"]
 [ext_resource type="PackedScene" uid="uid://dqd5laswbypek" path="res://scenes/Objects/SteamVent/steam_vent.tscn" id="12_0mfos"]
 [ext_resource type="PackedScene" uid="uid://dvi83pqgsama0" path="res://scenes/Objects/Drone/drone.tscn" id="17_8npj8"]
+[ext_resource type="Texture2D" uid="uid://dj5ekhau7l2d3" path="res://graphics/enemies/scout.png" id="17_nsa1c"]
 [ext_resource type="PackedScene" uid="uid://bfj25hkhfd5o1" path="res://scenes/Objects/Gate/gate.tscn" id="18_oevxa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grrlr"]
@@ -196,6 +197,29 @@ position = Vector2(0, 1029)
 
 [node name="Gate" parent="." index="3" instance=ExtResource("18_oevxa")]
 position = Vector2(737, -2)
+
+[node name="Label" type="Label" parent="." index="6"]
+offset_left = 42.0
+offset_top = 866.0
+offset_right = 84.0
+offset_bottom = 889.0
+scale = Vector2(4.16, 2.36)
+text = "Label"
+
+[node name="Button" type="Button" parent="." index="7"]
+offset_left = 240.0
+offset_top = 822.0
+offset_right = 302.0
+offset_bottom = 853.0
+scale = Vector2(3.92596, 4.47862)
+text = "Button"
+
+[node name="TextureRect" type="TextureRect" parent="." index="8"]
+offset_left = 210.0
+offset_top = 1241.0
+offset_right = 250.0
+offset_bottom = 1281.0
+texture = ExtResource("17_nsa1c")
 
 [connection signal="player_entered_house" from="Ground/House" to="." method="_on_house_player_entered_house"]
 [connection signal="player_exited_house" from="Ground/House" to="." method="_on_house_player_exited_house"]
