@@ -8,10 +8,14 @@ var grenade_scene = preload("res://scenes/Projectiles/grenade.tscn")
 var test_array: Array[String] = ["Hello","World","!",]
 
 # Called when the node enters the scene tree for the first time.
+#func _ready():
+	#print('Level ' + str(Globals.lasers_available))
+##	$Logo.rotation_degrees = 90
+	#for i in test_array:
+		#print(i)		
+		#
 func _ready():
-#	$Logo.rotation_degrees = 90
-	for i in test_array:
-		print(i)
+	print("Level is ready!")		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #	$Logo.rotation_degrees += 100 * delta

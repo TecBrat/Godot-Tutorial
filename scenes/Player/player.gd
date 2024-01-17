@@ -6,6 +6,9 @@ var can_throw_grenade: bool = true
 signal player_fire_laser(pos, direction)
 signal player_throw_grenade(pos, direction)
 
+func _ready():
+	print('Player ' + str(Globals.lasers_available))
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var running_direction = Input.get_vector("left","right","up","down")
