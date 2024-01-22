@@ -14,8 +14,7 @@ var test_array: Array[String] = ["Hello","World","!",]
 	#for i in test_array:
 		#print(i)		
 		#
-func _ready():
-	print("Level is ready!")		
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #	$Logo.rotation_degrees += 100 * delta
