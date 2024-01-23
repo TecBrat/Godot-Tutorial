@@ -32,6 +32,8 @@ func _on_player_player_fire_laser(pos,direction):
 	laser.direction = direction
 	laser.rotation_degrees = rad_to_deg(direction.angle())
 	$Projectiles.add_child(laser,true)
+	$UI.update_laser_label()
+	
 #   The below works. I'm only changing it to rotation_degrees to match the tutorial.
 #   The tutorial has a correction for the artwork being 90° offset.
 #   I changed the sprite's rotation instead.

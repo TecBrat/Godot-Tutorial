@@ -17,7 +17,8 @@ func _process(_delta):
 	look_at(get_global_mouse_position())
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("primary action") and can_fire_laser:
+	if Input.is_action_just_pressed("primary action") and can_fire_laser and Globals.lasers_available > 0:
+		Globals.lasers_available -= 1
 		var laser_markers = $LaserPositions.get_children()
 		var selected_laser = laser_markers[randi() % laser_markers.size()]
 		
