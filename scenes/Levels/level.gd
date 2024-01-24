@@ -44,8 +44,8 @@ func _on_player_player_throw_grenade(pos, direction):
 	var grenade = grenade_scene.instantiate() as RigidBody2D
 	grenade.position = pos
 	grenade.linear_velocity = direction * grenade.speed
-
 	$Projectiles.add_child(grenade,true)
+	$UI.update_grenade_label()
 
 
 

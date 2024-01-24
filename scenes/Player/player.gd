@@ -28,7 +28,8 @@ func _process(_delta):
 		can_fire_laser = false
 		$LaserTimer.start()
 		
-	if Input.is_action_just_pressed("secondary action") and can_throw_grenade:
+	if Input.is_action_just_pressed("secondary action") and can_throw_grenade and Globals.grenades_available > 0:
+		Globals.grenades_available -= 1
 		player_throw_grenade.emit($LaserPositions/Marker2D.global_position, shooting_direction)
 #		print("Throw Grenade")
 		can_throw_grenade = false
