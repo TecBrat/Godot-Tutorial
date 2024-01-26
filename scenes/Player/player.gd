@@ -6,6 +6,7 @@ var can_throw_grenade: bool = true
 signal player_fire_laser(pos, direction)
 signal player_throw_grenade(pos, direction)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var running_direction = Input.get_vector("left","right","up","down")
@@ -16,7 +17,8 @@ func _process(_delta):
 	look_at(get_global_mouse_position())
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("primary action") and can_fire_laser:
+	if Input.is_action_just_pressed("primary action") and can_fire_laser and Globals.lasers_available > 0:
+		Globals.lasers_available -= 1
 		var laser_markers = $LaserPositions.get_children()
 		var selected_laser = laser_markers[randi() % laser_markers.size()]
 		
@@ -26,7 +28,8 @@ func _process(_delta):
 		can_fire_laser = false
 		$LaserTimer.start()
 		
-	if Input.is_action_just_pressed("secondary action") and can_throw_grenade:
+	if Input.is_action_just_pressed("secondary action") and can_throw_grenade and Globals.grenades_available > 0:
+		Globals.grenades_available -= 1
 		player_throw_grenade.emit($LaserPositions/Marker2D.global_position, shooting_direction)
 #		print("Throw Grenade")
 		can_throw_grenade = false
